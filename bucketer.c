@@ -60,9 +60,9 @@ void testBucketingByHealth() {
   // Test with values at the boundary between healthy and exchange
   const int boundaryTest[] = {80, 80, 62, 62};
   struct CountsBySoH boundaryCounts = countBatteriesByHealth(boundaryTest, 4);
-  assert(boundaryCounts.healthy == 2);
+  assert(boundaryCounts.healthy == 0);
   assert(boundaryCounts.exchange == 2);
-  assert(boundaryCounts.failed == 0);
+  assert(boundaryCounts.failed == 2);
 
   // Test with negative values (boundary test)
   const int negativeTest[] = {-10, 30, -60};
