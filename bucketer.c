@@ -67,9 +67,9 @@ void testBucketingByHealth() {
   // Test with negative values (boundary test)
   const int negativeTest[] = {-10, 30, -60};
   struct CountsBySoH negativeCounts = countBatteriesByHealth(negativeTest, 3);
-  assert(negativeCounts.healthy == 1);
-  assert(negativeCounts.exchange == 1);
-  assert(negativeCounts.failed == 1);
+  assert(negativeCounts.healthy == 0);
+  assert(negativeCounts.exchange == 0);
+  assert(negativeCounts.failed == 3);
 
   printf("All tests passed. Done counting :)\n");
 }
