@@ -16,7 +16,7 @@ struct CountsBySoH countBatteriesByHealth(const int* presentCapacities, int nBat
     // Classify using the specified ranges
     if (SoH > 80.0) {
       counts.healthy++;
-    } else if (SoH <= 80.0 && SoH >= 62.0) {
+    } else if (SoH <= 80.0 && SoH > 62.0) {
       counts.exchange++;
     } else {
       counts.failed++;
