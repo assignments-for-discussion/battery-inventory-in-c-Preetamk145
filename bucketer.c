@@ -11,7 +11,7 @@ struct CountsBySoH countBatteriesByHealth(const int* presentCapacities, int nBat
   struct CountsBySoH counts = {0, 0, 0};
   for (int i = 0; i < nBatteries; ++i) {
     // Convert present capacity to SoH
-    double SoH = 100.0 * presentCapacities[i] / 120.0;
+    double SoH = 100.0 * (presentCapacities[i] / 120.0);
 
     // Classify using the specified ranges
     if (SoH > 80.0) {
@@ -64,7 +64,7 @@ void testBucketingByHealth() {
   assert(boundaryCounts.exchange == 2);
   assert(boundaryCounts.failed == 2);
 
-  // Test with negative values (boundary test)
+  // Test with negative values 
   const int negativeTest[] = {-10, 30, -60};
   struct CountsBySoH negativeCounts = countBatteriesByHealth(negativeTest, 3);
   assert(negativeCounts.healthy == 0);
